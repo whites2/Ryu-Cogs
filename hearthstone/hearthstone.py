@@ -24,3 +24,6 @@ class Hearthstone:
             
             await self.bot.say(r.json()[0]['imgGold'])
             await self.bot.say(r.json()[0]['text'])
+
+        def setup(bot):
+            bot.add_cog(Hearthstone(bot))
