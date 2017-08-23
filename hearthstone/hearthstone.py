@@ -17,6 +17,7 @@ class Hearthstone:
         await self.bot.say(r.json()[0]['img'])
         await self.bot.say(r.json()[0]['text'])
 
+    @commands.command()
     async def gcard(self, name):
         """Searches for a gold Hearthstone card"""
 
