@@ -12,7 +12,7 @@ class Hearthstone:
     async def card(self, *name):
         """Searches for a regular Hearthstone card"""
 
-        r = requests.get('https://omgvamp-hearthstone-v1.p.mashape.com/cards/{}'.format(name), headers={'X-Mashape-Key':'sly1A6Ur3tmshrDtRbWe4q738Afxp1cnkhajsnWqVf9HMJ7ZOJ'}) 
+        r = requests.get('https://omgvamp-hearthstone-v1.p.mashape.com/cards/{}'.format(join(name)), headers={'X-Mashape-Key':'sly1A6Ur3tmshrDtRbWe4q738Afxp1cnkhajsnWqVf9HMJ7ZOJ'}) 
         
         if r.status_code == 404:
             await self.bot.say('Card ' + name + ' not found.')
@@ -24,7 +24,7 @@ class Hearthstone:
     async def gcard(self, *name):
         """Searches for a gold Hearthstone card"""
 
-        r = requests.get('https://omgvamp-hearthstone-v1.p.mashape.com/cards/{}'.format(name), headers={'X-Mashape-Key':'sly1A6Ur3tmshrDtRbWe4q738Afxp1cnkhajsnWqVf9HMJ7ZOJ'}) 
+        r = requests.get('https://omgvamp-hearthstone-v1.p.mashape.com/cards/{}'.format(join(name)), headers={'X-Mashape-Key':'sly1A6Ur3tmshrDtRbWe4q738Afxp1cnkhajsnWqVf9HMJ7ZOJ'}) 
         
         if r.status_code == 404:
             await self.bot.say('Card ' + name + ' not found.')
