@@ -14,11 +14,9 @@ class Hearthstone:
 
         r = requests.get('https://omgvamp-hearthstone-v1.p.mashape.com/cards/{}'.format(name), headers={'X-Mashape-Key':'sly1A6Ur3tmshrDtRbWe4q738Afxp1cnkhajsnWqVf9HMJ7ZOJ'}) 
         
-        print(r)
-        print(r.json())
         print(name)
-        if r == '<Response [404]>':
-            await self.bot.say('Card ' + name + ' not found.'
+        if r.status_code == 404:
+            await self.bot.say('Card ' + name + ' not found.')
         else:
             await self.bot.say(r.json()[0]['img'])
             await self.bot.say(r.json()[0]['flavor'])
@@ -29,8 +27,11 @@ class Hearthstone:
 
         r = requests.get('https://omgvamp-hearthstone-v1.p.mashape.com/cards/{}'.format(name), headers={'X-Mashape-Key':'sly1A6Ur3tmshrDtRbWe4q738Afxp1cnkhajsnWqVf9HMJ7ZOJ'}) 
         
-        await self.bot.say(r.json()[0]['imgGold'])
-        await self.bot.say(r.json()[0]['flavor'])
+        if r.status_code == 404:
+            await self.bot.say('Card ' + name + ' not found.')
+        else:
+            await self.bot.say(r.json()[0]['img'])
+            await self.bot.say(r.json()[0]['flavor'])
 
 def setup(bot):
     bot.add_cog(Hearthstone(bot))
