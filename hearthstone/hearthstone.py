@@ -9,12 +9,11 @@ class Hearthstone:
         self.bot = bot
     
     @commands.command()
-    async def card(self, name):
+    async def card(self, *name):
         """Searches for a regular Hearthstone card"""
 
         r = requests.get('https://omgvamp-hearthstone-v1.p.mashape.com/cards/{}'.format(name), headers={'X-Mashape-Key':'sly1A6Ur3tmshrDtRbWe4q738Afxp1cnkhajsnWqVf9HMJ7ZOJ'}) 
         
-        print(name)
         if r.status_code == 404:
             await self.bot.say('Card ' + name + ' not found.')
         else:
@@ -22,7 +21,7 @@ class Hearthstone:
             await self.bot.say(r.json()[0]['flavor'])
 
     @commands.command()
-    async def gcard(self, name):
+    async def gcard(self, *name):
         """Searches for a gold Hearthstone card"""
 
         r = requests.get('https://omgvamp-hearthstone-v1.p.mashape.com/cards/{}'.format(name), headers={'X-Mashape-Key':'sly1A6Ur3tmshrDtRbWe4q738Afxp1cnkhajsnWqVf9HMJ7ZOJ'}) 
