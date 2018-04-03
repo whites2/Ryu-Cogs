@@ -14,6 +14,9 @@ class Hearthstone:
 
         r = requests.get('https://omgvamp-hearthstone-v1.p.mashape.com/cards/{}'.format(name), headers={'X-Mashape-Key':'sly1A6Ur3tmshrDtRbWe4q738Afxp1cnkhajsnWqVf9HMJ7ZOJ'}) 
         
+        print(r.json())
+        print(name)
+        
         await self.bot.say(r.json()[0]['img'])
         await self.bot.say(r.json()[0]['flavor'])
 
