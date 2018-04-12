@@ -29,7 +29,7 @@ class Hearthstone:
         if r.status_code == 404:
             await self.bot.say('Card ' + ' '.join(name) + ' not found.')
         else:
-            await self.bot.say(r.json()[0]['img'])
+            await self.bot.say(r.json()[0]['imgGold'])
             await self.bot.say(r.json()[0]['flavor'])
 
 def setup(bot):
